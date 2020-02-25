@@ -1,4 +1,4 @@
-package com.daumsoft.tm2;
+package com.daumsoft.ckan;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

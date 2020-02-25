@@ -1,4 +1,4 @@
-package com.daumsoft.tm2;
+package com.daumsoft.ckan;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.daumsoft.tm2.controller;
+package com.daumsoft.ckan.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
