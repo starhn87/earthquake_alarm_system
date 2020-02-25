@@ -19,6 +19,5 @@ public class MainController {
 	@RequestMapping("/index")
 	public String main() {
 		return "index";
-		// dflsdf
 	}
 }
