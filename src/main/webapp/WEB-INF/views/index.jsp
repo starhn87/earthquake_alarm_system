@@ -12,14 +12,15 @@
 </head>
 
 <body>
-	<div class="input-group">
-		<input id="input_keyword2" name="input_keyword2" class="form-control py-2 rounded-pill mr-1 pr-5" type="search"
-			placeholder="주제어를 입력하세요.">
-		<span class="input-group-append">
-			<button id="submit_button" class="btn rounded-pill border-0 ml-n5" type="button">
-				<i class="fa fa-search"></i>
-			</button>
-		</span>
+	<div class="container">
+		<div class="input-group mb-4 mt-4">
+			<input id="keyword" name="input_keyword2" class="form-control" type="search" placeholder="주제어를 입력하세요.">
+			<span class="input-group-append">
+				<button id="submit_button" class="btn" type="button">
+					<i class="fa fa-search"></i>
+				</button>
+			</span>
+		</div>
 	</div>
 	<div id="map"></div>
 
