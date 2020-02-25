@@ -6,6 +6,10 @@ spring:
     datasource:
         hikari:
             driver-class-name: com.mysql.cj.jdbc.Driver
+<<<<<<< HEAD
             jdbc-url: jdbc:mysql://35.239.48.56:week4
+=======
+            jdbc-url: jdbc:mysql://35.239.48.56:3306:week4
+>>>>>>> 6b1829b11eedb439a2897d2effc1cfe68c989596
             username: root
             password: "ds.earth"
