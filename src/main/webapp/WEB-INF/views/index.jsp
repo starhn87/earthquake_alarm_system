@@ -29,10 +29,6 @@
 		src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyA5EAI-XpCh6IL__6e-HL49CgXB2CW1dyg&callback=initMap"
 		async defer></script>
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 31ee3501ff8b6d8c30a176bde56e7e7b51dcd9ab
 	<!-- Resources -->
 	<script src=" https://code.jquery.com/jquery-Latest.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
