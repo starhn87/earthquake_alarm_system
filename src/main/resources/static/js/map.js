@@ -25,7 +25,7 @@ function initMap() {
             };
 
             infoWindow.setPosition(pos);
-            infoWindow.setContent(getAddressFromLatLng(pos.lat, pos.lng));
+            // infoWindow.setContent(getAddressFromLatLng(pos.lat, pos.lng));
             map.setCenter(pos);
             let latLng = new google.maps.LatLng(pos.lat, pos.lng);
             let marker = new google.maps.Marker({
@@ -45,6 +45,8 @@ function initMap() {
     fetch("http://localhost:8080/shelter/Marker").then((receive) => {
         receive.json().then((results) => {
             console.log(results);
+            if (results.datas == undefined || results.datas == null)
+                return;
             for (let i = 0; i < results.datas.length; i++) {
                 let contentString = "<div>" + results.datas[i].name + "</div>";
                 let infowindow = new google.maps.InfoWindow({
@@ -66,30 +68,29 @@ function initMap() {
             }
         });
     })
+
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+            'Error: The Geolocation service failed.' :
+            'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+    }
+
+    let getAddressFromLatLng = async (lat, lng) => {
+        const formattedAddress = await Geocode.fromLatLng(lat, lng).then(
+            response => {
+                const address = response.results[0].formatted_address;
+
+                return address;
+            },
+            error => {
+                console.log(error);
+                toast.error(error, {
+                    position: toast.POSITION.BOTTOM_CENTER
+                });
+            }
+        );
+        return formattedAddress;
+    };
 }
-
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-    infoWindow.setPosition(pos);
-    infoWindow.setContent(browserHasGeolocation ?
-        'Error: The Geolocation service failed.' :
-        'Error: Your browser doesn\'t support geolocation.');
-    infoWindow.open(map);
-}
-
-let getAddressFromLatLng = async (lat, lng) => {
-    const formattedAddress = await Geocode.fromLatLng(lat, lng).then(
-        response => {
-            const address = response.results[0].formatted_address;
-
-            return address;
-        },
-        error => {
-            console.log(error);
-            toast.error(error, {
-                position: toast.POSITION.BOTTOM_CENTER
-            });
-        }
-    );
-    return formattedAddress;
-};
-

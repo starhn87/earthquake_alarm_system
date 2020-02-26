@@ -21,4 +21,16 @@ public class MainServiceImpl implements MainService {
     public List<Dto> getDatas() {
         return dao.selectAll();
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Dto> getFirstDatas(float pivotx,float pivoty) {
+        return dao.getFirstMarkerData(pivotx,pivoty);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Dto> getOtherDatas(float pivotx,float pivoty) {
+        return dao.getOtherMarkerData(pivotx,pivoty);
+    }
 }
