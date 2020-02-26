@@ -32,6 +32,9 @@
                             <div style="margin-top:30%;" class="text-center">
                                 <h5><B> 지진에 대비하세요!</B></h5>
                             </div>
+                            <div class="form-group">
+                                <p class="text-center"><span style="color:red;">급해요!!</span> <a href="http://localhost:8080/index">넘어가기</a></p>
+                            </div>
                         </div>
                         <form action="http://localhost:8080/index" method="post" name="login">
                             <div class="form-group">
