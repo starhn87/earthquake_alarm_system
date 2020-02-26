@@ -22,6 +22,8 @@ public class CkanUtil {
             ret.append(data.getId());
             ret.append(",\"phone\":\"");
             ret.append(data.getPhoneNumber());
+            ret.append("\",\"capacity\":\"");
+            ret.append(data.getMaxCapacity());
             ret.append("\",\"jibun\":\"");
             ret.append(data.getJibunAddress());
             ret.append("\",\"coordinates\":[");
