@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
  * 지도 관련 객체
  */
 let map = {
-    _map: new google.maps.Map(document.getElementById('map'), {
+    map: new google.maps.Map(document.getElementById('map'), {
         center: { lat: 35.050725, lng: 128.978905 },
         zoom: 14
     }),
@@ -25,7 +25,7 @@ let map = {
      */
     _initMap() {
         search.initAutocomplete();
-        this._getPosition(this._map).then((location) => {
+        this._getPosition().then((location) => {
             this._displayMarker("first", location);
             this._displayMarker("others", location);
         });
@@ -36,7 +36,7 @@ let map = {
      * 
      * @param {Object}} map 구글 맵 
      */
-    _getPosition(map) {
+    _getPosition() {
         return new Promise((resolve, reject) => {
             let infoWindow = new google.maps.InfoWindow({
                 content: "현재 위치",
@@ -50,17 +50,17 @@ let map = {
                     };
 
                     infoWindow.setPosition(this._position);
-                    map.setCenter(this._position);
+                    this.map.setCenter(this._position);
 
                     let latLng = new google.maps.LatLng(this._position.lat, this._position.lng);
                     let marker = new google.maps.Marker({
                         position: latLng, //여기에 위도 경도 정보를 입력하고 마커 생성
-                        map: map,
+                        map: this.map,
                     });
 
                     marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
                     marker.addListener('click', () => {
-                        infoWindow.open(map, marker);
+                        infoWindow.open(this.map, marker);
                     });
 
                     resolve(this._position);
@@ -106,12 +106,12 @@ let map = {
 
                         let marker = new google.maps.Marker({
                             position: latLng, //여기에 위도 경도 정보를 입력하고 마커 생성
-                            map: this._map,
+                            map: this.map,
                             id: results.datas[i].id
                         });
 
                         marker.addListener('click', function () {
-                            infowindow.open(this._map, marker);
+                            infowindow.open(this.map, marker);
                         });
                     }
                 })
@@ -131,6 +131,6 @@ let map = {
         infoWindow.setContent(browserHasGeolocation ?
             'Error: The Geolocation service failed.' :
             'Error: Your browser doesn\'t support geolocation.');
-        infoWindow.open(this._map);
+        infoWindow.open(this.map);
     }
 }

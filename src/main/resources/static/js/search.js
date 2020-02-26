@@ -24,7 +24,7 @@ let search = {
         fetch(this._url + address)
             .then(res => (res.json()
                 .then((result) => {
-                    map.setCenter(result.results[0].geometry.location);
+                    map.map.setCenter(result.results[0].geometry.location);
                 })))
     },
 
