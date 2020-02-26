@@ -6,7 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * 메인 페이지 컨트롤러
  * 
- * @author 이승우
+ * @author Lee Seungwoo
+ * @version 1.0
+ * @since 2020. 2. 26.
  */
 @Controller
 public class MainController {

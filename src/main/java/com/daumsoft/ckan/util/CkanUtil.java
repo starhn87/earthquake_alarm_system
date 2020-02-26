@@ -4,6 +4,9 @@ import java.util.List;
 
 import com.daumsoft.ckan.dto.Shelter;
 
+/**
+ * ckan 연동을 위한 shelter 관련 mapper
+ */
 public class CkanUtil {
 
     public static String shelterCoordinatesMapper(List<Shelter> shelters) {

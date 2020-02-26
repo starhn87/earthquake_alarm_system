@@ -41,7 +41,7 @@ let map = {
             let infoWindow = new google.maps.InfoWindow({
                 content: "현재 위치",
             });
-            // Try HTML5 geolocation.
+
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition((position) => {
                     this._position = {
@@ -119,6 +119,13 @@ let map = {
 
     },
 
+    /**
+     * 현재 위치를 가져오는데 실패했을 경우 예외 처리
+     * 
+     * @param {Boolean} browserHasGeolocation GPS 사용 가능 여부 
+     * @param {Object} infoWindow 정보가 들어있는 창 
+     * @param {Object} pos 위도, 경도가 들어있는 위치 정보
+     */
     _handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
         infoWindow.setContent(browserHasGeolocation ?
