@@ -9,68 +9,62 @@ document.addEventListener("DOMContentLoaded", () => {
 
 let map;
 let pos;
+let infoWindow;
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 35.050725, lng: 128.978905 },
         zoom: 14
     });
-    
-    // Try HTML5 geolocation.
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
-            
-            map.setCenter(pos);
-            let infowindow = new google.maps.InfoWindow;
-            infowindow.setContent("현재 위치");
-            let latLng = new google.maps.LatLng(pos.lat, pos.lng);
-            let marker = new google.maps.Marker({
-                position: latLng, //여기에 위도 경도 정보를 입력하고 마커 생성
-                map: map,
-            });
-            marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
-            marker.addListener('click', function () {
-                infowindow.open(map, marker);
-            });
-        }, function () {
-            handleLocationError(true, infowindow, map.getCenter());
+
+    getPosition().then((p) => {
+        getMarker("first", p);
+        getMarker("others", p);
+    })
+
+
+}
+
+function getPosition() {
+    return new Promise((resolve, reject) => {
+        infoWindow = new google.maps.InfoWindow({
+            content: "현재 위치",
         });
-    } else {
-        // Browser doesn't support Geolocation
-        handleLocationError(false, infowindow, map.getCenter());
-    }
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
 
-    fetch("http://localhost:8080/shelter/Marker/first?" + "latitude=" + "35.050725" + "&" + "longitude=" + "128.978905").then((receive) => {
-        receive.json().then((results) => {
-            console.log(results);
-            if (results.datas == undefined || results.datas == null)
-                return;
-            for (let i = 0; i < results.datas.length; i++) {
-                let contentString = "<div>" + results.datas[i].name + "</div>";
-                contentString += "<div>" + results.datas[i].jibun + "</div>"
-
-                let latLng = new google.maps.LatLng(results.datas[i].coordinates[0], results.datas[i].coordinates[1]); //위도 경도 변수
-                let infowindow = new google.maps.InfoWindow({
-                    content: contentString,
-                    maxWidth: 300
-                });
-
+                infoWindow.setPosition(pos);
+                map.setCenter(pos);
+                let latLng = new google.maps.LatLng(pos.lat, pos.lng);
                 let marker = new google.maps.Marker({
                     position: latLng, //여기에 위도 경도 정보를 입력하고 마커 생성
                     map: map,
-                    id: results.datas[i].id
                 });
+                marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
                 marker.addListener('click', function () {
-                    infowindow.open(map, marker);
+                    infoWindow.open(map, marker);
                 });
-            }
-        });
+                resolve(pos);
+            }, function () {
+                reject("fail");
+                handleLocationError(true, infoWindow, map.getCenter());
+            });
+        } else {
+            // Browser doesn't support Geolocation
+            reject("fail");
+            handleLocationError(false, infoWindow, map.getCenter());
+        }
     })
 
-    fetch("http://localhost:8080/shelter/Marker/others?" + "latitude=" + "35.050725" + "&" + "longitude=" + "128.978905").then((receive) => {
+}
+
+function getMarker(path, p) {
+    console.log(p)
+    fetch("http://localhost:8080/shelter/Marker/" + path + "?latitude=" + p.lat + "&" + "longitude=" + p.lng).then((receive) => {
         receive.json().then((results) => {
             console.log(results);
             if (results.datas == undefined || results.datas == null)
