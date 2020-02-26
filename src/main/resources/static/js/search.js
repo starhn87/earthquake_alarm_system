@@ -1,34 +1,41 @@
+/**
+ * 검색 관련 객체
+ */
 let search = {
-    autoComplete: null,
-    
-}
+    _url: "https://maps.googleapis.com/maps/api/geocode/json?"
+        + "key=AIzaSyA5EAI-XpCh6IL__6e-HL49CgXB2CW1dyg&address=",
 
-let autocomplete;
-let url = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyA5EAI-XpCh6IL__6e-HL49CgXB2CW1dyg&address=";
-function requestLocation() {
-    let address = document.getElementById("address").value;
-    console.log(url + address);
-    fetch(url + address)
-        .then(res => (res.json()
-            .then((result) => {
-                map.setCenter(result.results[0].geometry.location);
-            })))
-}
+    /**
+     * Enter 키에 이벤트 추가
+     */
+    addEnterEvent() {
+        const ENTER = 13;
+        if (event.keyCode === ENTER) {
+            this.changeCenter();
+        }
+    },
 
-let getLocation = () => {
-    if (event.keyCode === 13) {
+    /**
+     * 검색한 값의 경도, 위도를 통해
+     * 지도 화면에서 보여지는 위치 변경
+     */
+    changeCenter() {
         let address = document.getElementById("address").value;
-        console.log(url + address);
-        fetch(url + address)
+        fetch(this._url + address)
             .then(res => (res.json()
                 .then((result) => {
                     map.setCenter(result.results[0].geometry.location);
                 })))
+    },
+
+    /**
+     * 검색창에 값 입력시 자동완성기능
+     */
+    initAutocomplete() {
+        let autocomplete = new google.maps.places.Autocomplete((
+            document.getElementById('address')), { types: ['geocode'] });
     }
 }
 
-function initAutocomplete() {
-    autocomplete = new google.maps.places.Autocomplete((document.getElementById('address')), { types: ['geocode'] });
-}
 
 

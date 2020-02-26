@@ -2,8 +2,8 @@ package com.daumsoft.ckan.service.impl;
 
 import java.util.List;
 
-import com.daumsoft.ckan.dao.Dao;
-import com.daumsoft.ckan.dto.Dto;
+import com.daumsoft.ckan.dao.ShelterDao;
+import com.daumsoft.ckan.dto.Shelter;
 import com.daumsoft.ckan.service.MainService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,23 +14,17 @@ import org.springframework.transaction.annotation.Transactional;
 public class MainServiceImpl implements MainService {
 
     @Autowired
-    private Dao dao;
+    private ShelterDao shelterDao;
 
     @Override
     @Transactional(readOnly = true)
-    public List<Dto> getDatas() {
-        return dao.selectAll();
+    public List<Shelter> getFirstDatas(float pivotx, float pivoty) {
+        return shelterDao.getFirstMarkerData(pivotx, pivoty);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public List<Dto> getFirstDatas(float pivotx,float pivoty) {
-        return dao.getFirstMarkerData(pivotx,pivoty);
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public List<Dto> getOtherDatas(float pivotx,float pivoty) {
-        return dao.getOtherMarkerData(pivotx,pivoty);
+    public List<Shelter> getOtherDatas(float pivotx, float pivoty) {
+        return shelterDao.getOtherMarkerData(pivotx, pivoty);
     }
 }

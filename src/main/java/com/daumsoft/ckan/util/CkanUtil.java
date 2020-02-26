@@ -2,36 +2,36 @@ package com.daumsoft.ckan.util;
 
 import java.util.List;
 
-import com.daumsoft.ckan.dto.Dto;
+import com.daumsoft.ckan.dto.Shelter;
 
 public class CkanUtil {
 
-    public static String shelterCoordinatesMapper(List<Dto> datas) {
+    public static String shelterCoordinatesMapper(List<Shelter> shelters) {
         StringBuilder ret = new StringBuilder("");
 
         boolean init = true;
 
         ret.append("{\"type\":\"shelterMarker\",\"datas\":[");
-        for (Dto data : datas) {
-            if (init)
+        for (Shelter shelter : shelters) {
+            if (init) {
                 init = false;
-            else
+            } else {
                 ret.append(",");
-
+            }
             ret.append("{\"id\":");
-            ret.append(data.getId());
+            ret.append(shelter.getId());
             ret.append(",\"phone\":\"");
-            ret.append(data.getPhoneNumber());
+            ret.append(shelter.getPhoneNumber());
             ret.append("\",\"capacity\":\"");
-            ret.append(data.getMaxCapacity());
+            ret.append(shelter.getMaxCapacity());
             ret.append("\",\"jibun\":\"");
-            ret.append(data.getJibunAddress());
+            ret.append(shelter.getJibunAddress());
             ret.append("\",\"coordinates\":[");
-            ret.append(data.getLatitude());
+            ret.append(shelter.getLatitude());
             ret.append(",");
-            ret.append(data.getLongitude());
+            ret.append(shelter.getLongitude());
             ret.append("],\"name\":\"");
-            ret.append(data.getName());
+            ret.append(shelter.getName());
             ret.append("\"}");
         }
         ret.append("]}");

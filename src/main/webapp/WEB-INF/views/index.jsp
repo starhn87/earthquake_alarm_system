@@ -12,10 +12,10 @@
 </head>
 
 <body>
-	<div class="container mb-4 mt-5">
+	<div class="container mb-5 mt-5">
 		<div class="input-group">
 			<input id="address" name="input_keyword2" class="form-control" type="search"
-				placeholder="Enter your address" onkeydown="getLocation()">
+				placeholder="Enter your address" onkeydown="search.addEnterEvent()">
 			<span class="input-group-append">
 				<button id="submit_button" class="btn" type="button">
 					<i class="fa fa-search"></i>
@@ -26,7 +26,7 @@
 	<div id="map"></div>
 
 	<script
-		src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyA5EAI-XpCh6IL__6e-HL49CgXB2CW1dyg&callback=initMap"
+		src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyA5EAI-XpCh6IL__6e-HL49CgXB2CW1dyg"
 		async defer></script>
 
 	<!-- Resources -->

@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class Dto {
+public class Shelter {
     private long id;
     private String name;
     private String category;
