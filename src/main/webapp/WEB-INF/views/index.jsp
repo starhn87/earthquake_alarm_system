@@ -14,7 +14,8 @@
 <body>
 	<div class="container">
 		<div class="input-group mb-4 mt-4">
-			<input id="keyword" name="input_keyword2" class="form-control" type="search" placeholder="주제어를 입력하세요.">
+			<input id="address" name="input_keyword2" class="form-control" type="search"
+				placeholder="Enter your address" onkeydown="getLocation()">
 			<span class="input-group-append">
 				<button id="submit_button" class="btn" type="button">
 					<i class="fa fa-search"></i>
@@ -24,15 +25,19 @@
 	</div>
 	<div id="map"></div>
 
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5EAI-XpCh6IL__6e-HL49CgXB2CW1dyg&callback=initMap"
+	<script
+		src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyA5EAI-XpCh6IL__6e-HL49CgXB2CW1dyg&callback=initMap"
 		async defer></script>
+
+
 	<!-- Resources -->
-	<script src="https://code.jquery.com/jquery-Latest.min.js"></script>
+	<script src=" https://code.jquery.com/jquery-Latest.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
 		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
 		crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-	<script src="js/map.js"></script>`
+	<script src="js/map.js"></script>
+	<script src="js/search.js"></script>
 </body>
 
 </html>

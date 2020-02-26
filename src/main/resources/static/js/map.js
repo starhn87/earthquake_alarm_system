@@ -4,8 +4,12 @@
  * @param  {String} "DOMContentLoaded" 돔 구성 완료
  */
 document.addEventListener("DOMContentLoaded", () => {
-    //let a = map.initMap();
+    document.querySelector("#submit_button").addEventListener("click", (event) => {
+        requestLocation();
+    })
 })
+
+
 
 let map;
 let pos;
@@ -15,6 +19,9 @@ function initMap() {
         center: { lat: 35.050725, lng: 128.978905 },
         zoom: 14
     });
+    console.log("map: " + map);
+
+    initAutocomplete();
 
     getPosition().then((p) => {
         getMarker("first", p);
