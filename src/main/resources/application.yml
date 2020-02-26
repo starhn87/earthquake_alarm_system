@@ -1,0 +1,12 @@
+spring:
+    mvc:
+        view:
+            prefix: /WEB-INF/views/
+            suffix: .jsp
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://35.239.48.56:3306/week4
+        username: root
+        password: ds.earth
+            
+

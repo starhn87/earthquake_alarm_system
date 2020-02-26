@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-DemoApplication<week2>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.daumsoft.ckan.DemoApplication",
+            "projectName": "week2",
+            "args": ""
+        }
+    ]
+}
