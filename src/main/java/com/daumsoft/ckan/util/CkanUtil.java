@@ -20,7 +20,9 @@ public class CkanUtil {
 
             ret.append("{\"id\":");
             ret.append(data.getId());
-            ret.append(",\"jibun\":\"");
+            ret.append(",\"phone\":\"");
+            ret.append(data.getPhoneNumber());
+            ret.append("\",\"jibun\":\"");
             ret.append(data.getJibunAddress());
             ret.append("\",\"coordinates\":[");
             ret.append(data.getLatitude());

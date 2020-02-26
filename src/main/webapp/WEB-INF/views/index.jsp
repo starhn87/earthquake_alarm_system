@@ -26,6 +26,7 @@
 
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5EAI-XpCh6IL__6e-HL49CgXB2CW1dyg&callback=initMap"
 		async defer></script>
+
 	<!-- Resources -->
 	<script src="https://code.jquery.com/jquery-Latest.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
