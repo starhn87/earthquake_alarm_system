@@ -8,37 +8,39 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 let map;
-let infoWindow;
+let pos;
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 35.050725, lng: 128.978905 },
         zoom: 14
     });
-
-    infoWindow = new google.maps.InfoWindow;
+    
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
-            let pos = {
+            pos = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
-
-            infoWindow.setPosition(pos);
+            
             map.setCenter(pos);
+            let infowindow = new google.maps.InfoWindow;
+            infowindow.setContent("현재 위치");
             let latLng = new google.maps.LatLng(pos.lat, pos.lng);
             let marker = new google.maps.Marker({
                 position: latLng, //여기에 위도 경도 정보를 입력하고 마커 생성
                 map: map,
             });
             marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
-            infowindow.open(map, marker);
+            marker.addListener('click', function () {
+                infowindow.open(map, marker);
+            });
         }, function () {
-            handleLocationError(true, infoWindow, map.getCenter());
+            handleLocationError(true, infowindow, map.getCenter());
         });
     } else {
         // Browser doesn't support Geolocation
-        handleLocationError(false, infoWindow, map.getCenter());
+        handleLocationError(false, infowindow, map.getCenter());
     }
 
     fetch("http://localhost:8080/shelter/Marker/first?" + "latitude=" + "35.050725" + "&" + "longitude=" + "128.978905").then((receive) => {
