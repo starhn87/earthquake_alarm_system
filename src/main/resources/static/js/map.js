@@ -77,8 +77,9 @@ function getMarker(path, p) {
             if (results.datas == undefined || results.datas == null)
                 return;
             for (let i = 0; i < results.datas.length; i++) {
-                let contentString = "<div>" + results.datas[i].name + "</div>";
-                contentString += "<div>" + results.datas[i].jibun + "</div>"
+                let contentString = "<h3>" + results.datas[i].name + "</h3>";
+                contentString += "<div><span style='color:white;background-color:orange;border:solid orange 1px;'>지번</span>" + results.datas[i].jibun + "</div>"
+                contentString += "<div><span style='color:white;background-color:red;border:solid red 1px;'>전화</span>" + results.datas[i].phone + "</div>"
 
                 let latLng = new google.maps.LatLng(results.datas[i].coordinates[0], results.datas[i].coordinates[1]); //위도 경도 변수
                 let infowindow = new google.maps.InfoWindow({
