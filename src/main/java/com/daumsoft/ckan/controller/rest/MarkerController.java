@@ -1,6 +1,7 @@
 package com.daumsoft.ckan.controller.rest;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -27,6 +28,17 @@ public class MarkerController {
             System.out.println(dto.getName());
         }*/
     }
-    // @GetMapping(value="/Marker/{}")
+    @GetMapping(value="/Marker/first")
+    public String getFirstMarkers(@RequestParam("latitude") float latitude
+                                    ,@RequestParam("longitude") float longitude) {
+        List<Dto> dtos = mainService.getFirstDatas(latitude,longitude);
+        return CkanUtil.shelterCoordinatesMapper(dtos);
+    }
 
+    @GetMapping(value="/Marker/others")
+    public String getOtherMarkers(@RequestParam("latitude") float latitude
+                                ,@RequestParam("longitude") float longitude) {
+        List<Dto> dtos = mainService.getOtherDatas(latitude,longitude);
+        return CkanUtil.shelterCoordinatesMapper(dtos);
+    }
 }
