@@ -4,14 +4,13 @@
  * @param  {String} "DOMContentLoaded" 돔 구성 완료
  */
 document.addEventListener("DOMContentLoaded", () => {
-    //let a = map.initMap();
 })
 
 let map;
 let infoWindow;
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: 35.050725, lng: 128.978905 },
+        center: { lat: 36.11, lng: 129.37 },
         zoom: 14
     });
 
@@ -26,6 +25,7 @@ function initMap() {
             };
 
             infoWindow.setPosition(pos);
+            infoWindow.setContent(getAddressFromLatLng(pos.lat, pos.lng));
             map.setCenter(pos);
             let latLng = new google.maps.LatLng(pos.lat, pos.lng);
             let marker = new google.maps.Marker({
@@ -33,7 +33,7 @@ function initMap() {
                 map: map,
             });
             marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
-            infowindow.open(map, marker);
+            infoWindow.open(map, marker);
         }, function () {
             handleLocationError(true, infoWindow, map.getCenter());
         });
@@ -47,7 +47,7 @@ function initMap() {
             console.log(results);
             for (let i = 0; i < results.datas.length; i++) {
                 let contentString = "<div>" + results.datas[i].name + "</div>";
-                infowindow = new google.maps.InfoWindow({
+                let infowindow = new google.maps.InfoWindow({
                     content: contentString,
                     maxWidth: 300
                 });
@@ -75,4 +75,21 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         'Error: Your browser doesn\'t support geolocation.');
     infoWindow.open(map);
 }
+
+let getAddressFromLatLng = async (lat, lng) => {
+    const formattedAddress = await Geocode.fromLatLng(lat, lng).then(
+        response => {
+            const address = response.results[0].formatted_address;
+
+            return address;
+        },
+        error => {
+            console.log(error);
+            toast.error(error, {
+                position: toast.POSITION.BOTTOM_CENTER
+            });
+        }
+    );
+    return formattedAddress;
+};
 
