@@ -50,6 +50,8 @@ function getPosition() {
                 let marker = new google.maps.Marker({
                     position: latLng, //여기에 위도 경도 정보를 입력하고 마커 생성
                     map: map,
+                    width: 300,
+                    height: 500,
                 });
                 marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
                 marker.addListener('click', function () {
@@ -84,7 +86,7 @@ function getMarker(path, p) {
                 let latLng = new google.maps.LatLng(results.datas[i].coordinates[0], results.datas[i].coordinates[1]); //위도 경도 변수
                 let infowindow = new google.maps.InfoWindow({
                     content: contentString,
-                    maxWidth: 300
+                    maxWidth: 300,
                 });
 
                 let marker = new google.maps.Marker({

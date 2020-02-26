@@ -3,7 +3,7 @@
 <html>
 
 <head>
-	<title>Simple Map</title>
+	<title>지진 대피소 검색기</title>
 	<meta name="viewport" content="initial-scale=1.0">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -12,8 +12,8 @@
 </head>
 
 <body>
-	<div class="container">
-		<div class="input-group mb-4 mt-4">
+	<div class="container mb-4 mt-5">
+		<div class="input-group">
 			<input id="address" name="input_keyword2" class="form-control" type="search"
 				placeholder="Enter your address" onkeydown="getLocation()">
 			<span class="input-group-append">
