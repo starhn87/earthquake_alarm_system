@@ -34,10 +34,10 @@
                             </div>
                             <div class="form-group">
                                 <p class="text-center"><span style="color:red;">급해요!!</span> <a
-                                        href="http://localhost:8080/index">넘어가기</a></p>
+                                        href="http://localhost:8080/main">넘어가기</a></p>
                             </div>
                         </div>
-                        <form action="http://localhost:8080/index" method="post" name="login">
+                        <form action="http://localhost:8080/main" method="post" name="login">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email</label>
                                 <input type="email" name="email" class="form-control" id="email"

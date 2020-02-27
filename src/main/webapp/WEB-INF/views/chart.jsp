@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="css/chart.css">
 </head>
 <body>
-    <a href="http://localhost:8080/index" class="btn btn-primary" style="border-color:gray; background-color: gray; position: absolute;top:7.4%;right:23.5%;">지도보기</a>
+    <a href="http://localhost:8080/main" class="btn btn-primary" style="border-color:gray; background-color: gray; position: absolute;top:7.4%;right:23.5%;">지도보기</a>
     <div class="container">
         <h1 style="margin-top:3%;width:100%; text-align:center;">< 지진 발생 빈도 ></h1>
         <table id="eq-table" class="container" style="width:60%;margin-top:3%;">
