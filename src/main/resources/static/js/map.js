@@ -18,7 +18,7 @@ let map = {
         center: { lat: 35.050725, lng: 128.978905 },
         zoom: 14
     }),
-    _position: null,
+    position: null,
 
     /**
      * 지도 관련 가장 먼저 실행하는 동작
@@ -26,6 +26,11 @@ let map = {
     _initMap() {
         search.initAutocomplete();
         this._getPosition().then((location) => {
+            var centerControlDiv = document.createElement('div');
+            var centerControl = new CenterControl(centerControlDiv, this.map, location);
+
+            centerControlDiv.index = 1;
+            this.map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(centerControlDiv);
             this._displayMarker("first", location);
             this._displayMarker("others", location);
         });
@@ -44,26 +49,27 @@ let map = {
 
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition((position) => {
-                    this._position = {
+                    this.position = {
                         lat: position.coords.latitude,
                         lng: position.coords.longitude
                     };
 
-                    infoWindow.setPosition(this._position);
-                    this.map.setCenter(this._position);
+                    infoWindow.setPosition(this.position);
+                    this.map.setCenter(this.position);
 
-                    let latLng = new google.maps.LatLng(this._position.lat, this._position.lng);
+                    let latLng = new google.maps.LatLng(this.position.lat, this.position.lng);
                     let marker = new google.maps.Marker({
                         position: latLng, //여기에 위도 경도 정보를 입력하고 마커 생성
                         map: this.map,
                     });
 
                     marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
+                    marker.setZIndex(99);
                     marker.addListener('click', () => {
                         infoWindow.open(this.map, marker);
                     });
 
-                    resolve(this._position);
+                    resolve(this.position);
                 }, () => {
                     reject("fail");
                     this._handleLocationError(true, infoWindow, search.getCenter());
@@ -133,4 +139,43 @@ let map = {
             'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(this.map);
     }
+}
+
+/**
+* The CenterControl adds a control to the map that recenters the map on
+* Chicago.
+* This constructor takes the control DIV as an argument.
+* @constructor
+*/
+function CenterControl(controlDiv, map, location) {
+
+    // Set CSS for the control border.
+    var controlUI = document.createElement('div');
+    controlUI.style.backgroundColor = '#fff';
+    controlUI.style.borderRadius = '2px';
+    controlUI.style.boxShadow = 'rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;';
+    controlUI.style.cursor = 'pointer';
+    controlUI.style.marginBottom = '5px';
+    controlUI.style.marginRight = '10px';
+    controlUI.style.textAlign = 'center';
+    controlUI.title = 'Click to recenter the map';
+    controlDiv.appendChild(controlUI);
+    
+    // Set CSS for the control interior.
+    var controlText = document.createElement('div');
+    controlText.classList.add = "current_location";
+    controlText.style.color = 'rgb(25,25,25)';
+    controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
+    controlText.style.fontSize = '25px';
+    controlText.style.lineHeight = '38px';
+    controlText.innerHTML = '<i class="fas fa-map-marker-alt"></i>';
+    controlText.color = "green";
+    controlUI.appendChild(controlText);
+
+    // Setup the click event listeners: simply set the map to Chicago.
+    controlUI.addEventListener('click', function () {
+        console.log(location);
+        map.setCenter(location);
+    });
+
 }
