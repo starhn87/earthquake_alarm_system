@@ -29,11 +29,11 @@
                 <div id="second">
                     <div class="myform form">
                         <div class="logo mb-3">
-                            <div style="margin-top:30%;" class=" text-center">
+                            <div style="margin-top:17%;" class=" text-center">
                                 <h5><B>대피소가 기다리고 있습니다!</B></h5>
                             </div>
                         </div>
-                        <form action="#" name="registration">
+                        <form action="http://localhost:8080/index" method="post" name="registration">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">이름</label>
                                 <input type="text" name="name" class="form-control" id="name"

@@ -54,9 +54,6 @@
                             <div class="col-md-12 text-center ">
                                 <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">로그인</button>
                             </div>
-                            <div class="col-md-12 text-center ">
-                                <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">비밀번호 변경</button>
-                            </div>
                             <div class="col-md-12 ">
                                 <div class="login-or">
                                     <hr class="hr-or">
