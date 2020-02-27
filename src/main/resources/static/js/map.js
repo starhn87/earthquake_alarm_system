@@ -7,7 +7,9 @@ document.addEventListener("DOMContentLoaded", () => {
     map._initMap();
 
     let searchButton = document.querySelector("#submit_button");
-    searchButton.addEventListener("click", search.changeCenter);
+    searchButton.addEventListener("click", (event) => {
+        search.changeCenter();
+    });
 })
 
 /**
