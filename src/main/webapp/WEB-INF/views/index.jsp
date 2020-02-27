@@ -26,8 +26,7 @@
 	<div id="map"></div>
 
 	<script
-		src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyA5EAI-XpCh6IL__6e-HL49CgXB2CW1dyg"
-		async defer></script>
+		src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyA5EAI-XpCh6IL__6e-HL49CgXB2CW1dyg"></script>
 
 	<!-- Resources -->
 	<script src=" https://code.jquery.com/jquery-Latest.min.js"></script>
@@ -35,6 +34,7 @@
 		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
 		crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	<script src="https://cdn.klokantech.com/maptilerlayer/v1/index.js"></script>
 	<script src="js/map.js"></script>
 	<script src="js/search.js"></script>
 </body>
