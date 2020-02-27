@@ -18,8 +18,8 @@ public class MainController {
 	 *
 	 * @return index에 해당하는 view 페이지
 	 */
-	@RequestMapping("/index")
+	@RequestMapping("/main")
 	public String main() {
-		return "index";
+		return "main";
 	}
 }
