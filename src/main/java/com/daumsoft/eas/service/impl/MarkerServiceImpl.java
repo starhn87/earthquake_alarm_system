@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.daumsoft.eas.dao.ShelterDao;
 import com.daumsoft.eas.dto.Shelter;
-import com.daumsoft.eas.service.MainService;
+import com.daumsoft.eas.service.MarkerService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 
 @Service
-public class MainServiceImpl implements MainService {
+public class MarkerServiceImpl implements MarkerService {
 
     @Autowired
     private ShelterDao shelterDao;

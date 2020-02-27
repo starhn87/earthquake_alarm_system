@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 import com.daumsoft.eas.dto.Shelter;
-import com.daumsoft.eas.service.MainService;
+import com.daumsoft.eas.service.MarkerService;
 import com.daumsoft.eas.util.CkanUtil;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class MarkerController {
 
     @Autowired
-    private MainService mainService;
+    private MarkerService markerService;
 
     /**
      * 
@@ -36,7 +36,7 @@ public class MarkerController {
     @GetMapping(value = "/Marker/first")
     public String getFirstMarkers(@RequestParam("latitude") float latitude,
             @RequestParam("longitude") float longitude) {
-        List<Shelter> shelters = mainService.getFirstDatas(latitude, longitude);
+        List<Shelter> shelters = markerService.getFirstDatas(latitude, longitude);
         return CkanUtil.shelterCoordinatesMapper(shelters);
     }
 
@@ -49,7 +49,7 @@ public class MarkerController {
     @GetMapping(value = "/Marker/others")
     public String getOtherMarkers(@RequestParam("latitude") float latitude,
             @RequestParam("longitude") float longitude) {
-        List<Shelter> shelters = mainService.getOtherDatas(latitude, longitude);
+        List<Shelter> shelters = markerService.getOtherDatas(latitude, longitude);
         return CkanUtil.shelterCoordinatesMapper(shelters);
     }
 }

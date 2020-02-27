@@ -11,7 +11,7 @@ import com.daumsoft.eas.dto.Shelter;
  * @version 1.0
  * @since 2020. 2. 26.
  */
-public interface MainService {
+public interface MarkerService {
 
     /**
      * 먼저 가져와야 하는 데이터를 가져옴
