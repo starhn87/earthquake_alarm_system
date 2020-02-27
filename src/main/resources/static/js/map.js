@@ -132,7 +132,7 @@ let map = {
         let contentString = "<h3>" + data.name + "</h3>";
         contentString += "<div><span style='color:white;background-color:orange;border:solid orange 1px;'>지번</span>" + data.jibun + "</div>"
         contentString += "<div><span style='color:white;background-color:red;border:solid red 1px;'>전화</span>" + data.phone + "</div>"
-        contentString += "<div><B>수용인원: </B>" + data.capacity + "</div>";
+        contentString += "<div><B>최대수용인원: </B>" + data.capacity + "</div>";
         return contentString;
     },
 
