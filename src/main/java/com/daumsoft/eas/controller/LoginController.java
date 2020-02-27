@@ -32,4 +32,8 @@ public class LoginController {
     public String signup() {
         return "signup";
     }
+    @RequestMapping("/password")
+    public String password(){
+        return "changePassword";
+    }
 }

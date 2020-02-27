@@ -13,6 +13,7 @@
 
 <body>
 	<div class="container mb-5 mt-5">
+		<a href="http://localhost:8080/chartPage" class="btn btn-primary" style="border-color:gray; background-color: gray; position: absolute;top:8.3%;right:10%;">현황보기</a>
 		<div class="input-group">
 			<input id="address" name="input_keyword2" class="form-control" type="search"
 				placeholder="Enter your address" onkeydown="search.addEnterEvent()">
@@ -26,9 +27,8 @@
 	<div id="map"></div>
 
 	<script
-		src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyA5EAI-XpCh6IL__6e-HL49CgXB2CW1dyg"
-		></script>
-		<!--async defer 금지-->
+		src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyA5EAI-XpCh6IL__6e-HL49CgXB2CW1dyg"></script>
+	<!--async defer 금지-->
 
 	<!-- Resources -->
 	<script src=" https://code.jquery.com/jquery-Latest.min.js"></script>

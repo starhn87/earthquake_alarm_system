@@ -6,8 +6,16 @@ tr,td,th{
 }
 
 thead{
-    background-color: rgb(244, 176, 132);
+    background-color: #3b9dff;
     color:white;    
 }
 
+tr:nth-child(2n){
+    background-color: #dfeffde0;
+}
 
+.trans-btn{
+    position: absolute;
+    top:0;
+    right:0;
+}
