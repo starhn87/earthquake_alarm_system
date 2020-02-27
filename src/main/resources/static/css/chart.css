@@ -1,0 +1,13 @@
+.eq-area,.eq-level,.eq-year,.eq-freq{
+    text-align: center;
+}
+tr,td,th{
+    border:solid 1px black;
+}
+
+thead{
+    background-color: rgb(244, 176, 132);
+    color:white;    
+}
+
+

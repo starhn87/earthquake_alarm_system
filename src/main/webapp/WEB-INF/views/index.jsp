@@ -27,7 +27,8 @@
 
 	<script
 		src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyA5EAI-XpCh6IL__6e-HL49CgXB2CW1dyg"
-		async defer></script>
+		></script>
+		<!--async defer 금지-->
 
 	<!-- Resources -->
 	<script src=" https://code.jquery.com/jquery-Latest.min.js"></script>

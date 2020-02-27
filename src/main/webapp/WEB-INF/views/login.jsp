@@ -29,11 +29,12 @@
                 <div id="first">
                     <div class="myform form ">
                         <div class="logo mb-3">
-                            <div style="margin-top:30%;" class="text-center">
+                            <div style="margin-top:17%;" class="text-center">
                                 <h5><B> 지진에 대비하세요!</B></h5>
                             </div>
                             <div class="form-group">
-                                <p class="text-center"><span style="color:red;">급해요!!</span> <a href="http://localhost:8080/index">넘어가기</a></p>
+                                <p class="text-center"><span style="color:red;">급해요!!</span> <a
+                                        href="http://localhost:8080/index">넘어가기</a></p>
                             </div>
                         </div>
                         <form action="http://localhost:8080/index" method="post" name="login">
@@ -51,7 +52,10 @@
                                 <p class="text-center">By signing up you accept our <a href="#">Terms Of Use</a></p>
                             </div>
                             <div class="col-md-12 text-center ">
-                                <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Login</button>
+                                <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">로그인</button>
+                            </div>
+                            <div class="col-md-12 text-center ">
+                                <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">비밀번호 변경</button>
                             </div>
                             <div class="col-md-12 ">
                                 <div class="login-or">
@@ -59,7 +63,8 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <p class="text-center">계정이 없으세요? <a href="http://localhost:8080/signup" id="signup">회원가입</a></p>
+                                <p class="text-center">계정이 없으세요? <a href="http://localhost:8080/signup"
+                                        id="signup">회원가입</a></p>
                             </div>
                         </form>
                     </div>
