@@ -1,8 +1,15 @@
-package com.daumsoft.eas.controller;
+package com.daumsoft.esps.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+/**
+ * 차트 페이지 컨트롤러
+ * 
+ * @author Han Jewan
+ * @version 1.0
+ * @since 2020. 2. 27.
+ */
 @Controller
 public class ChartPageController {
 

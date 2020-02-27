@@ -26,8 +26,8 @@ let map = {
     _initMap() {
         search.initAutocomplete();
         this._getPosition().then((location) => {
-            var centerControlDiv = document.createElement('div');
-            var centerControl = new CenterControl(centerControlDiv, this.map, location);
+            let centerControlDiv = document.createElement('div');
+            let centerControl = this._CenterControl(centerControlDiv, this.map, location);
 
             centerControlDiv.index = 1;
             this.map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(centerControlDiv);
@@ -39,7 +39,7 @@ let map = {
     /**
      * GPS가 켜져 있을 경우 현재 위치를 가져옴
      * 
-     * @param {Object}} map 구글 맵 
+     * @param {Object} map 구글 맵 
      */
     _getPosition() {
         return new Promise((resolve, reject) => {
@@ -98,13 +98,9 @@ let map = {
                     if (results.datas === undefined || results.datas === null) {
                         return;
                     }
-                    for (let i = 0; i < results.datas.length; i++) {
-                        let contentString = "<h3>" + results.datas[i].name + "</h3>";
-                        contentString += "<div><span style='color:white;background-color:orange;border:solid orange 1px;'>지번</span>" + results.datas[i].jibun + "</div>"
-                        contentString += "<div><span style='color:white;background-color:red;border:solid red 1px;'>전화</span>" + results.datas[i].phone + "</div>"
-                        contentString += "<div><B>수용인원: </B>" + results.datas[i].capacity + "</div>";
-
-                        let latLng = new google.maps.LatLng(results.datas[i].coordinates[0], results.datas[i].coordinates[1]); //위도 경도 변수
+                    results.datas.forEach((data) => {
+                        let contentString = this._makeContentString(data);
+                        let latLng = new google.maps.LatLng(data.coordinates[0], data.coordinates[1]); //위도 경도 변수
                         let infowindow = new google.maps.InfoWindow({
                             content: contentString,
                             maxWidth: 300,
@@ -113,16 +109,29 @@ let map = {
                         let marker = new google.maps.Marker({
                             position: latLng, //여기에 위도 경도 정보를 입력하고 마커 생성
                             map: this.map,
-                            id: results.datas[i].id
+                            id: data.id
                         });
 
                         marker.addListener('click', function () {
                             infowindow.open(this.map, marker);
                         });
-                    }
+                    })
                 })
             )
+    },
 
+    /**
+     * 지진 대피소 데이터를 html화
+     * 
+     * @param {Object} data 지진 대피소 데이터
+     * @return 가공된 지진 대피소 데이터
+     */
+    _makeContentString(data) {
+        let contentString = "<h3>" + data.name + "</h3>";
+        contentString += "<div><span style='color:white;background-color:orange;border:solid orange 1px;'>지번</span>" + data.jibun + "</div>"
+        contentString += "<div><span style='color:white;background-color:red;border:solid red 1px;'>전화</span>" + data.phone + "</div>"
+        contentString += "<div><B>수용인원: </B>" + data.capacity + "</div>";
+        return contentString;
     },
 
     /**
@@ -138,44 +147,57 @@ let map = {
             'Error: The Geolocation service failed.' :
             'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(this.map);
-    }
+    },
+
+    /**
+    * 내 위치 버튼 생성자
+    * @constructor
+    */
+    _CenterControl(controlDiv, map, location) {
+        let controlUI = document.createElement('div');
+        this._setControlUI(controlUI);
+        controlDiv.appendChild(controlUI);
+
+        // Set CSS for the control interior.
+        let controlText = document.createElement('div');
+        this._setControlText(controlText);
+        controlUI.appendChild(controlText);
+
+        // Setup the click event listeners: simply set the map to Chicago.
+        controlUI.addEventListener('click', () => {
+            map.setCenter(location);
+        });
+    },
+
+    /**
+     * 내 위치 버튼 설정
+     * 
+     * @param {Element} controlUI 내 위치 버튼
+     */
+    _setControlUI(controlUI) {
+        controlUI.style.backgroundColor = '#fff';
+        controlUI.style.borderRadius = '2px';
+        controlUI.style.boxShadow = 'rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;';
+        controlUI.style.cursor = 'pointer';
+        controlUI.style.marginBottom = '5px';
+        controlUI.style.marginRight = '10px';
+        controlUI.style.textAlign = 'center';
+        controlUI.title = 'Click to recenter the map';
+    },
+
+    /**
+     * 현재 위치 컨텐츠 설정
+     * 
+     * @param {Element} controlText 현재 위치 컨텐츠
+     */
+    _setControlText(controlText) {
+        controlText.classList.add = "current_location";
+        controlText.style.color = 'rgb(25,25,25)';
+        controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
+        controlText.style.fontSize = '25px';
+        controlText.style.lineHeight = '38px';
+        controlText.innerHTML = '<i class="fas fa-map-marker-alt"></i>';
+        controlText.color = "green";
+    },
 }
 
-/**
-* The CenterControl adds a control to the map that recenters the map on
-* Chicago.
-* This constructor takes the control DIV as an argument.
-* @constructor
-*/
-function CenterControl(controlDiv, map, location) {
-
-    // Set CSS for the control border.
-    var controlUI = document.createElement('div');
-    controlUI.style.backgroundColor = '#fff';
-    controlUI.style.borderRadius = '2px';
-    controlUI.style.boxShadow = 'rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;';
-    controlUI.style.cursor = 'pointer';
-    controlUI.style.marginBottom = '5px';
-    controlUI.style.marginRight = '10px';
-    controlUI.style.textAlign = 'center';
-    controlUI.title = 'Click to recenter the map';
-    controlDiv.appendChild(controlUI);
-    
-    // Set CSS for the control interior.
-    var controlText = document.createElement('div');
-    controlText.classList.add = "current_location";
-    controlText.style.color = 'rgb(25,25,25)';
-    controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
-    controlText.style.fontSize = '25px';
-    controlText.style.lineHeight = '38px';
-    controlText.innerHTML = '<i class="fas fa-map-marker-alt"></i>';
-    controlText.color = "green";
-    controlUI.appendChild(controlText);
-
-    // Setup the click event listeners: simply set the map to Chicago.
-    controlUI.addEventListener('click', function () {
-        console.log(location);
-        map.setCenter(location);
-    });
-
-}

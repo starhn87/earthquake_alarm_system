@@ -1,13 +1,13 @@
-package com.daumsoft.eas.dto;
+package com.daumsoft.esps.dto;
 
 import lombok.*;
 
 /**
- * Shelter DTO
+ * EarthquakeInformation DTO
  * 
  * @author Lee Seungwoo
  * @version 1.0
- * @since 2020. 2. 26.
+ * @since 2020. 2. 27.
  */
 @Setter
 @Getter

@@ -8,11 +8,11 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.daumsoft</groupId>
-	<artifactId>eas</artifactId>
+	<artifactId>esps</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>eas</name>
-	<description>Earthquake Alarm project</description>
+	<name>esps</name>
+	<description>Earthquake Shelter Providing System</description>
 
 	<properties>
 		<java.version>1.8</java.version>

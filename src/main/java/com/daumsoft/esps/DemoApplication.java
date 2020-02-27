@@ -1,4 +1,4 @@
-package com.daumsoft.eas;
+package com.daumsoft.esps;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

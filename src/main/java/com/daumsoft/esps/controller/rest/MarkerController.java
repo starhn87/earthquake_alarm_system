@@ -1,4 +1,4 @@
-package com.daumsoft.eas.controller.rest;
+package com.daumsoft.esps.controller.rest;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-import com.daumsoft.eas.dto.Shelter;
-import com.daumsoft.eas.service.MarkerService;
-import com.daumsoft.eas.util.CkanUtil;
+import com.daumsoft.esps.dto.Shelter;
+import com.daumsoft.esps.service.MarkerService;
+import com.daumsoft.esps.util.CkanUtil;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,10 +28,11 @@ public class MarkerController {
     private MarkerService markerService;
 
     /**
+     * 근처 데이터를 비동기적으로 가져옴
      * 
-     * @param latitude
-     * @param longitude
-     * @return
+     * @param latitude  위도
+     * @param longitude 경도
+     * @return 근처에 해당하는 지진해일대피소 데이터 목록
      */
     @GetMapping(value = "/Marker/first")
     public String getFirstMarkers(@RequestParam("latitude") float latitude,
@@ -41,10 +42,11 @@ public class MarkerController {
     }
 
     /**
+     * 전체 데이터를 비동기적으로 가져옴
      * 
-     * @param latitude
-     * @param longitude
-     * @return
+     * @param latitude  위도
+     * @param longitude 경도
+     * @return 전체 지진해일대피소 데이터 목록
      */
     @GetMapping(value = "/Marker/others")
     public String getOtherMarkers(@RequestParam("latitude") float latitude,

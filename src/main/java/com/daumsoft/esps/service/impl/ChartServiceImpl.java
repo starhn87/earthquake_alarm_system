@@ -1,10 +1,10 @@
-package com.daumsoft.eas.service.impl;
+package com.daumsoft.esps.service.impl;
 
 import java.util.List;
 
-import com.daumsoft.eas.dao.ChartDao;
-import com.daumsoft.eas.dto.EqInfo;
-import com.daumsoft.eas.service.ChartService;
+import com.daumsoft.esps.dao.ChartDao;
+import com.daumsoft.esps.dto.EqInfo;
+import com.daumsoft.esps.service.ChartService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,13 +17,15 @@ import org.springframework.stereotype.Service;
  * @param <EqInfo>
  * @since 2019. 7. 24.
  */
-
 @Service
 public class ChartServiceImpl implements ChartService {
 
     @Autowired
     private ChartDao chartDao;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<EqInfo> getEqChartDatas() {
         return chartDao.getEqChartDatas();

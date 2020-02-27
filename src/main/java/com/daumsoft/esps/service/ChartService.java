@@ -1,8 +1,8 @@
-package com.daumsoft.eas.service;
+package com.daumsoft.esps.service;
 
 import java.util.List;
 
-import com.daumsoft.eas.dto.EqInfo;
+import com.daumsoft.esps.dto.EqInfo;
 
 /**
  * Category 관련 수행되어야 할 기능 선언

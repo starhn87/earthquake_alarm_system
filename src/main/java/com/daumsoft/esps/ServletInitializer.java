@@ -1,4 +1,4 @@
-package com.daumsoft.eas;
+package com.daumsoft.esps;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

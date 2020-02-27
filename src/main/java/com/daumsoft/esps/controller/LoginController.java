@@ -1,4 +1,4 @@
-package com.daumsoft.eas.controller;
+package com.daumsoft.esps.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,9 +31,5 @@ public class LoginController {
     @RequestMapping("/signup")
     public String signup() {
         return "signup";
-    }
-    @RequestMapping("/password")
-    public String password(){
-        return "changePassword";
     }
 }

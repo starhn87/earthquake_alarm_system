@@ -1,4 +1,4 @@
-package com.daumsoft.eas.dto;
+package com.daumsoft.esps.dto;
 
 import lombok.Getter;
 import lombok.Setter;
