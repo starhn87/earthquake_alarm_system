@@ -64,6 +64,7 @@ let map = {
                     });
 
                     marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
+                    marker.setZIndex(99);
                     marker.addListener('click', () => {
                         infoWindow.open(this.map, marker);
                     });
