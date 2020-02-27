@@ -1,8 +1,8 @@
-package com.daumsoft.ckan.service;
+package com.daumsoft.eas.service;
 
 import java.util.List;
 
-import com.daumsoft.ckan.dto.EqInfo;
+import com.daumsoft.eas.dto.EqInfo;
 
 /**
  * Category 관련 수행되어야 할 기능 선언

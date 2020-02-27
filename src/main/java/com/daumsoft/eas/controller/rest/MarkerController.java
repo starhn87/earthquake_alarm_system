@@ -1,4 +1,4 @@
-package com.daumsoft.ckan.controller.rest;
+package com.daumsoft.eas.controller.rest;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-import com.daumsoft.ckan.dto.Shelter;
-import com.daumsoft.ckan.service.MainService;
-import com.daumsoft.ckan.util.CkanUtil;
+import com.daumsoft.eas.dto.Shelter;
+import com.daumsoft.eas.service.MainService;
+import com.daumsoft.eas.util.CkanUtil;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

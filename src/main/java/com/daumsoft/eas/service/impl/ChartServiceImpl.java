@@ -1,10 +1,10 @@
-package com.daumsoft.ckan.service.impl;
+package com.daumsoft.eas.service.impl;
 
 import java.util.List;
 
-import com.daumsoft.ckan.dao.ChartDao;
-import com.daumsoft.ckan.dto.EqInfo;
-import com.daumsoft.ckan.service.ChartService;
+import com.daumsoft.eas.dao.ChartDao;
+import com.daumsoft.eas.dto.EqInfo;
+import com.daumsoft.eas.service.ChartService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,8 +26,6 @@ public class ChartServiceImpl implements ChartService {
 
     @Override
     public List<EqInfo> getEqChartDatas() {
-        // TODO Auto-generated method stub
         return chartDao.getEqChartDatas();
     }
-    
 }

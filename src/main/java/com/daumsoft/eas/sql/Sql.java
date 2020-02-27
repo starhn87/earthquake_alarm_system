@@ -1,4 +1,4 @@
-package com.daumsoft.ckan.sql;
+package com.daumsoft.eas.sql;
 
 /**
  * Shelter 관련 쿼리문

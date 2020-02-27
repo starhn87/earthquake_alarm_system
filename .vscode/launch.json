@@ -6,7 +6,7 @@
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "console": "internalConsole",
-            "mainClass": "com.daumsoft.ckan.DemoApplication",
+            "mainClass": "com.daumsoft.eas.DemoApplication",
             "projectName": "week2",
             "args": ""
         }

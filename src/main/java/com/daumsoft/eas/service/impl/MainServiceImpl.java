@@ -1,10 +1,10 @@
-package com.daumsoft.ckan.service.impl;
+package com.daumsoft.eas.service.impl;
 
 import java.util.List;
 
-import com.daumsoft.ckan.dao.ShelterDao;
-import com.daumsoft.ckan.dto.Shelter;
-import com.daumsoft.ckan.service.MainService;
+import com.daumsoft.eas.dao.ShelterDao;
+import com.daumsoft.eas.dto.Shelter;
+import com.daumsoft.eas.service.MainService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

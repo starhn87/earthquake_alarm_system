@@ -1,10 +1,10 @@
-package com.daumsoft.ckan.controller.rest;
+package com.daumsoft.eas.controller.rest;
 
 import java.util.List;
 
-import com.daumsoft.ckan.dto.EqInfo;
-import com.daumsoft.ckan.service.ChartService;
-import com.daumsoft.ckan.util.CkanUtil;
+import com.daumsoft.eas.dto.EqInfo;
+import com.daumsoft.eas.service.ChartService;
+import com.daumsoft.eas.util.CkanUtil;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

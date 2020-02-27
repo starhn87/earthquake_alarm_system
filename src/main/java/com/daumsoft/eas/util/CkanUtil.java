@@ -1,13 +1,11 @@
-package com.daumsoft.ckan.util;
+package com.daumsoft.eas.util;
 
 import java.util.List;
 
-import com.daumsoft.ckan.dto.EqInfo;
-import com.daumsoft.ckan.dto.Shelter;
+import com.daumsoft.eas.dto.EqInfo;
+import com.daumsoft.eas.dto.Shelter;
 
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 
 // import org.json.simple.JSONArray;
 // import org.json.simple.parser.JSONParser;
@@ -50,18 +48,19 @@ public class CkanUtil {
         return ret.toString();
     }
 
+    @SuppressWarnings("unchecked")
     public static String eqchartMapper(List<EqInfo> eqinfos) {
-        StringBuilder ret=new StringBuilder("[");
-        
-        boolean init=true;
+        StringBuilder ret = new StringBuilder("[");
+
+        boolean init = true;
 
         for (EqInfo info : eqinfos) {
-            if(init){
-                init=false;
-            }else{
+            if (init) {
+                init = false;
+            } else {
                 ret.append(",");
             }
-            
+
             JSONObject tmp = new JSONObject();
             tmp.put("id", info.getId());
             tmp.put("area", info.getArea());

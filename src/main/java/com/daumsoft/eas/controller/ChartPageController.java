@@ -1,4 +1,4 @@
-package com.daumsoft.ckan.controller;
+package com.daumsoft.eas.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

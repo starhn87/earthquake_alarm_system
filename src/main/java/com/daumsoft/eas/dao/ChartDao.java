@@ -1,13 +1,13 @@
-package com.daumsoft.ckan.dao;
+package com.daumsoft.eas.dao;
 
 import java.util.Collections;
 import java.util.List;
 
 import javax.sql.DataSource;
 
-import com.daumsoft.ckan.dto.EqInfo;
+import com.daumsoft.eas.dto.EqInfo;
 
-import static com.daumsoft.ckan.sql.Sql.*;
+import static com.daumsoft.eas.sql.Sql.*;
 
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
