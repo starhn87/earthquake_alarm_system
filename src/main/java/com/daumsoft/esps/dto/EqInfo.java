@@ -12,9 +12,9 @@ import lombok.*;
 @Setter
 @Getter
 public class EqInfo {
-    private long id;
-    private String area;
-    private int level;
-    private int frequency;
-    private String year;
+	private long id;
+	private String area;
+	private int level;
+	private int frequency;
+	private String year;
 }

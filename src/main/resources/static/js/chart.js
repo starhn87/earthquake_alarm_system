@@ -27,7 +27,7 @@ let chart = {
     _makeChart() {
         fetch("http://localhost:8080/data/chart/earthquake")
             .then((receive) => {
-                receive.json().then(results => {
+                receive.json().then((results) => {
                     let content = this._content;
                     results.forEach((data) => {
                         content += this._makeEqData(data);
