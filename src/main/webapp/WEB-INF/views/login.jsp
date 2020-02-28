@@ -34,19 +34,19 @@
                             </div>
                             <div class="form-group">
                                 <p class="text-center"><span style="color:red;">급해요!!</span> <a
-                                        href="http://localhost:8080/main">넘어가기</a></p>
+                                       style="text-decoration: underline;" href="http://localhost:8080/main">넘어가기</a></p>
                             </div>
                         </div>
                         <form action="http://localhost:8080/main" method="post" name="login">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email</label>
                                 <input type="email" name="email" class="form-control" id="email"
-                                    aria-describedby="emailHelp" placeholder="Enter email">
+                                    aria-describedby="emailHelp" placeholder="Enter email" value="daumsoft@daumsoft.co.kr">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Password</label>
                                 <input type="password" name="password" id="password" class="form-control"
-                                    aria-describedby="emailHelp" placeholder="Enter Password">
+                                    aria-describedby="emailHelp" placeholder="Enter Password" value="helloworld">
                             </div>
                             <div class="form-group">
                                 <p class="text-center">By signing up you accept our <a href="#">Terms Of Use</a></p>
