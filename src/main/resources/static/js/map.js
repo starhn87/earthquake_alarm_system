@@ -113,6 +113,7 @@ let map = {
                             map: this.map,
                             id: data.id
                         });
+                        marker.setZIndex(5);
 
                         marker.addListener('click', function () {
                             infowindow.open(this.map, marker);
