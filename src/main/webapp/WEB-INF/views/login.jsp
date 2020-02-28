@@ -51,8 +51,8 @@
                             <div class="form-group">
                                 <p class="text-center">By signing up you accept our <a href="#">Terms Of Use</a></p>
                             </div>
-                            <div class="col-md-12 text-center ">
-                                <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">로그인</button>
+                            <div class="col-md-12 text-center" style="padding:0;">
+                                <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm"">로그인</button>
                             </div>
                             <div class="col-md-12 ">
                                 <div class="login-or">

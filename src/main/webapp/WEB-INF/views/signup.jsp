@@ -54,7 +54,7 @@
                                 <input type="password" name="password" id="password" class="form-control"
                                     aria-describedby="emailHelp" placeholder="Enter Password">
                             </div>
-                            <div class="col-md-12 text-center mb-3">
+                            <div class="col-md-12 text-center mb-3" style="padding:0;">
                                 <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">가입</button>
                             </div>
                     </div>
