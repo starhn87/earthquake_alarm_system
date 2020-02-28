@@ -185,7 +185,7 @@ let map = {
         controlUI.style.marginBottom = '5px';
         controlUI.style.marginRight = '10px';
         controlUI.style.textAlign = 'center';
-        controlUI.title = 'Click to recenter the map';
+        controlUI.title = '현재 위치 보기';
     },
 
     /**
